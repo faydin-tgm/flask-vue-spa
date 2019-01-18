@@ -9,3 +9,7 @@ def client():
 def test_get(client):
     res = client.get('/api/random')
     assert res.status_code == 200
+
+def test_grenzen(client):
+    res = client.get('/api/random')
+    assert res.json("randomNumber") > 1 and res.json("randomNumber") < 100
